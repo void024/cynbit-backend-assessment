@@ -1,0 +1,15 @@
+Recorded verification runs, 5 Nov 2026, OpenJDK 11.0.30 (Ubuntu).
+Run with the JDK single-file source launcher: java <File>.java
+
+=== deadline/DeadlineContractTest.java ===
+PASS: email and portal render the same deadline -> Thu, Nov 5, 12:58 PM IST
+
+=== deadline/DeadlineDisplayReproTest.java ===
+chosen instant:  2026-11-05T07:28:00Z
+rendered in UTC: Thu, Nov 5, 07:28 AM UTC  <- matches the email display (no zone shown)
+rendered in IST: Thu, Nov 5, 12:58 PM IST  <- matches the portal display
+ok - UTC rendering matches the email's 07:28 AM
+ok - IST rendering matches the portal's 12:58 PM
+ok - Asia/Kolkata is UTC+05:30 at that instant, the exact gap between the two displays
+PASS: one stored instant reproduces both observed deadline displays
+(minute precision - consistency with the observations, not a confirmed cause)
