@@ -1,0 +1,16 @@
+Recorded verification run, 5 Nov 2026, OpenJDK 11.0.30 (Ubuntu).
+Run with the JDK single-file source launcher: java SubmissionIdempotencyDemo.java
+
+=== submission/SubmissionIdempotencyDemo.java ===
+ok - same key + same payload replays the original receipt
+ok - a replay leaves the version history untouched
+ok - same key + changed payload is rejected with a conflict (409)
+ok - a rejected operation leaves the version history untouched
+ok - regression premise holds: Aa and BB share a String.hashCode
+ok - payloads colliding under String.hashCode are still treated as different (exact equality)
+ok - no worker thread failed during the first-creation race
+ok - concurrent first creation produced exactly one submission record
+ok - each accepted new key appended exactly one immutable version
+ok - no worker thread failed during the same-key race
+ok - a concurrent same-key race adds exactly one version in total
+PASS: idempotency demo - replay, 409 conflict, collision regression and concurrency invariants hold
